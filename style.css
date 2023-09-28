@@ -11,7 +11,6 @@ body{
     display: flex;
     height: 500px;
     width: 800px;
-    margin: 50px;
 }
 
 .content-left{
@@ -31,7 +30,7 @@ body{
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -42,5 +41,95 @@ body{
 
 
 .position-list{
-    margin-bottom: 180px !important;
+    margin-bottom: 200px !important;
+}
+
+.headlines{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.font-h1{
+    font-family: "pt sans"!important;
+    font-weight: bold;
+}
+
+.font-h2{
+    font-family: "pt sans"!important;
+    
+}
+
+.font-content-left{
+    font-family: "Rubik"!important;
+}
+
+h1{
+    font-size: 2rem !important;
+}
+
+h2{
+    font-size: 1.5rem !important;
+}
+
+.btn-pos{
+    margin-left: 300px;
+    border: none !important;
+    width: 200px !important;
+
+}
+
+.card{
+    width: 30rem !important;
+    display: flex !important;
+    justify-content: center;
+    border: none;
+    --bs-card-spacer-y: 0.5rem !important;
+    --bs-card-spacer-x: 0.5rem !important;
+}
+
+.bg-color{
+    background-color: #F7F7F7 !important;
+}
+
+.card-position{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+} 
+
+.card-text{
+    text-align: center;
+}
+
+
+.question-footer{
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+b{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.abcd{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+
+}
+
+.answer-card:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
 }

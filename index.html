@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizapp</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
 
     <!--Bootstrap file-->
@@ -23,26 +24,30 @@
 
   <body>
     <div class="content">
-      <div class="content-left">
+      <div class="content-left font-content-left">
         <img class="img-logo"src="./img/logo.png">
         <ul class="nav flex-column position-list">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">HTML</a>
+            <a class="nav-link active" aria-current="page" href="#">Geographie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">CSS</a>
+            <a class="nav-link" href="#">Physik</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">JS</a>
+            <a class="nav-link" href="#">Chemie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">JAVA</a>
+            <a class="nav-link">Geschichte</a>
           </li>
         </ul>
       </div>
-      <div class="content-right">
-        <h1>Welcome to The Awesome HTML Quiz</h1>
-        <h2>Ready for the Challenge?</h2>
+      <div id="content-right"class="content-right">
+        <div class="headlines">
+        <h1 class="font-h1">Willkommen zu<br>meinem  Wissensquiz</h1>
+        <h2>Bist du bereit für die Herausforderung?</h2>
+        </div>
+        <button type="button" onclick="renderCard()"class="btn btn-primary btn-lg btn-pos">START NOW  ></button>
+        
       </div>
     </div>
   </body>
