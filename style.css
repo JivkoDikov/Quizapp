@@ -4,13 +4,20 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    
+
+    
 }
 
 .content{
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    
     display: flex;
-    height: 500px;
-    width: 800px;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+    
+    
 }
 
 .content-left{
@@ -22,6 +29,13 @@ body{
     background-color: #29294b;
 }
 
+.content-left-right{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: 500px;
+    width: 800px;
+    overflow: hidden;
+}
 
 .content-right{
     width: 80%;
@@ -32,13 +46,26 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+}
+
+.nav{
+    justify-content: center;
+}
+
+.progress-bar-container{
+    width: 800px;
+      
+}
+
+.progress{
+    border-radius: 0 !important;
 }
 
 .img-logo{
     margin-top: 10px;
     width: 70px;
 }
-
 
 .position-list{
     margin-bottom: 200px !important;
@@ -49,7 +76,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 70px;
     text-align: center;
 }
 
@@ -59,8 +85,7 @@ body{
 }
 
 .font-h2{
-    font-family: "pt sans"!important;
-    
+    font-family: "pt sans"!important; 
 }
 
 .font-content-left{
@@ -79,7 +104,6 @@ h2{
     margin-left: 300px;
     border: none !important;
     width: 200px !important;
-
 }
 
 .card{
@@ -105,7 +129,6 @@ h2{
     text-align: center;
 }
 
-
 .question-footer{
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
@@ -126,10 +149,203 @@ b{
     justify-content: center;
     align-items: center;
     background-color: gray;
-
 }
 
 .answer-card:hover{
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+.endscreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brain-result{
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.nav-link:hover{
+    color: white !important;
+}
+
+.btn-width{
+    width: 160px;
+}
+
+.font-endscreen-text{
+    font-family: "Rubik";
+    font-weight: bold;
+}
+
+.content-right-bg-d-none{
+    background-image: none;
+}
+
+.font-endscreen-button{
+    font-family: "Rubik" !important;
+}
+
+.solid-bar{
+    width: 35px;
+    margin-right: 10px;
+    cursor: pointer;   
+}
+
+.solid-bar:hover{
+    transform: scale(0.9);
+}
+
+.overlay-menu{
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transform: translateX(1500px);
+    transition: all 225ms ease-in-out;
+    
+    
+}
+
+.show-overlay-menu{
+    transform: translateX(0);
+
+} 
+
+.close-menu-btn{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+}
+
+
+.d-none{
+    display: none;
+}
+
+/*Responsive style*/
+
+@media(max-width: 820px){
+    .content-left-right{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 500px;
+    }
+
+    .content-left{
+        height: 100px;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: initial !important;  
+        padding: 10px; 
+    }
+
+    .content-right{
+        width: 100vw;
+        height: 500px;
+    }
+
+    
+      
+    .progress-bar-container{
+        width: 100vw;
+    }
+    
+    .position-list{
+        margin-bottom: 0 !important;
+    }
+    
+    .img-logo{
+        margin-top: 0;
+        margin-left: 10px;
+    }
+
+    .question-footer{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 30rem;
+    }
+  
+    .question-number{
+    text-align: center;
+}
+
+.btn-pos{
+    margin-left: 0;
+}
+}
+
+@media(min-width:505px){
+    .solid-bar{
+        display: none;
+    }
+
+    
+}
+@media(max-width: 505px){
+    .card{
+        width: 19rem !important;
+        font-size: 14px !important;
+    }
+
+
+.question-footer{
+    width: 19rem;
+
+}
+
+.question-number{
+    font-size: 14px;
+}
+
+.font-h1{
+    font-size: 28px !important;
+}
+
+h2{
+    font-size: 20px !important;
+}
+
+
+.nav{
+    
+    --bs-nav-link-color: var(--bs-link-color);
+}
+
+.nav-item{
+    display: none !important;
+}
+
+.btn-pos{
+
+    width: 160px !important;
+    font-size: 16px !important;
+}
+
+.nav-link{
+    color: blue !important;
+    font-weight: bold !important;
+}
+
+.nav-link:hover{
+    color: rgb(57, 93, 255) !important;
+    cursor: pointer;
+}
+
+}
+
+
+
+
+

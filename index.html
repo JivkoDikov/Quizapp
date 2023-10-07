@@ -24,9 +24,11 @@
 
   <body>
     <div class="content">
+      <div id="insert-progress-bar" class="progress-bar-container"></div>
+      <div class="content-left-right">
       <div class="content-left font-content-left">
         <img class="img-logo"src="./img/logo.png">
-        <ul class="nav flex-column position-list">
+        <ul class="nav position-list">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Geographie</a>
           </li>
@@ -40,15 +42,33 @@
             <a class="nav-link">Geschichte</a>
           </li>
         </ul>
+        <img onclick="showMenu()"class="solid-bar "src="./img/bars-solid (2).svg">
       </div>
       <div id="content-right"class="content-right">
-        <div class="headlines">
+        <div id="menu"class="overlay-menu ">
+  
+          <a class="nav-link active mt-5" aria-current="page" href="#">Geographie</a>
+        
+        
+          <a class="nav-link mt-5" href="#">Physik</a>
+        
+        
+          <a class="nav-link mt-5" href="#">Chemie</a>
+        
+        
+          <a class="nav-link mt-5">Geschichte</a>
+        
+          <button onclick="closeMenu()" class="close-menu-btn">x</button>
+        </div>
+    
+        <div id="headlines"class="headlines">
         <h1 class="font-h1">Willkommen zu<br>meinem  Wissensquiz</h1>
         <h2>Bist du bereit für die Herausforderung?</h2>
         </div>
-        <button type="button" onclick="renderCard()"class="btn btn-primary btn-lg btn-pos">START NOW  ></button>
+        <button id="start-now-btn"type="button" onclick="renderCard()"class="btn btn-primary btn-lg btn-pos">STARTE JETZT</button>
         
       </div>
+     </div>
     </div>
   </body>
 </html>
