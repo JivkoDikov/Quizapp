@@ -46,25 +46,25 @@ function renderCard() {
  
   let contentright = document.getElementById("content-right");
   contentright.innerHTML = "";
-  contentright.innerHTML += /*html*/ `<div id="card"class="card border border-0 bg-color">
+  contentright.innerHTML += /*html*/ `<div id="card"class="card border border-0 bg-color mt-5">
     <div id="card-body"class="card-body">
       <p class="card-text">${questions[i]["question"]}</p>
     </div>
-    <div id="answer_1"onclick="answer('answer_1')"class="card  answer-card mb-2 border border-0">
+    <div id="answer_1"onclick="answer('answer_1')"class="card  answer-card mb-3 border border-0 mt-3">
       
   <div class="card-body card-position">
   <div class="abcd bg-primary">A</div>
     <span class="ms-5">${questions[i]["answer_1"]}</span>
   </div>
 </div>
-<div id="answer_2" onclick="answer('answer_2')"class="card answer-card  mb-2 border border-0">
+<div id="answer_2" onclick="answer('answer_2')"class="card answer-card  mb-3 border border-0">
 
   <div class="card-body card-position">
   <div class="abcd bg-primary">B</div>
     <span class="ms-5">${questions[i]["answer_2"]}</span>
   </div>
 </div>
-<div id="answer_3"onclick="answer('answer_3')"class="card  answer-card mb-2 border border-0">
+<div id="answer_3"onclick="answer('answer_3')"class="card  answer-card mb-3 border border-0">
 
   <div class="card-body card-position">
   <div class="abcd bg-primary">C</div>
@@ -84,7 +84,7 @@ function renderCard() {
     <div class="question-number">
     <b id="question-number">1</b> von <b id="all-questions"></b> Fragen
 </div>
-    <button id="next-button"disabled type="button" onclick="showNextQuestion()"class="btn btn-primary btn-lg btn-pos">Nächste Frage</button>
+    <button id="next-button"disabled type="button" onclick="showNextQuestion()"class="btn btn-primary btn-lg ">Nächste Frage</button>
 </div>
 
     `;
@@ -167,37 +167,19 @@ function restart(){
 }
 
 function showMenu(){
- if(questions = -1){
-  document.getElementById('headlines').classList.add('d-none');
-  document.getElementById('start-now-btn').classList.add('d-none');
+  document.getElementById('content-right').classList.add('d-none');
   document.getElementById('menu').classList.add('show-overlay-menu');
-  }else {
-    document.getElementById('card').classList.add('d-none');
-    document.getElementById('question-footer').classList.add('d-none');
-    document.getElementById('menu').classList.add('show-overlay-menu');
-  }
-
-  }
-   
-
-  
-  
-
-
- 
-
-function closeMenu(){
-  if(questions = -1){
-    document.getElementById('menu').classList.remove('show-overlay-menu');
-    document.getElementById('headlines').classList.remove('d-none');
-    document.getElementById('start-now-btn').classList.remove('d-none');
-   
-    }else if(questions > -1){
-     
-  
-      document.getElementById('card').classList.add('d-none');
-      document.getElementById('question-footer').classList.add('d-none');
-      document.getElementById('menu').classList.add('show-overlay-menu');
 
 }
+  
+function closeMenu(){
+  document.getElementById('menu').classList.remove('show-overlay-menu');
+  document.getElementById('content-right').classList.remove('d-none');
+   
+   
+  
+     
+  
+      
+
 }

@@ -15,7 +15,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 700px;
+    
     
     
 }
@@ -25,14 +25,14 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: #29294b;
 }
 
 .content-left-right{
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     display: flex;
-    height: 500px;
+    height: 600px;
     width: 800px;
     overflow: hidden;
 }
@@ -44,13 +44,14 @@ body{
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 
 }
 
 .nav{
     justify-content: center;
+    margin-top: 100px;
 }
 
 .progress-bar-container{
@@ -77,6 +78,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 200px;
 }
 
 .font-h1{
@@ -101,9 +103,9 @@ h2{
 }
 
 .btn-pos{
-    margin-left: 300px;
     border: none !important;
     width: 200px !important;
+    margin-bottom: 150px;
 }
 
 .card{
@@ -113,7 +115,11 @@ h2{
     border: none;
     --bs-card-spacer-y: 0.5rem !important;
     --bs-card-spacer-x: 0.5rem !important;
+
+    
 }
+
+
 
 .bg-color{
     background-color: #F7F7F7 !important;
@@ -135,6 +141,8 @@ h2{
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
+    margin-bottom: 20px;
+    width: 30rem;
 }
 
 b{
@@ -160,7 +168,8 @@ b{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 600px;
 }
 
 .brain-result{
@@ -204,7 +213,7 @@ b{
     right: 0;
     left: 0;
     width: 100vw;
-    top: 300px;
+    top: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -223,8 +232,18 @@ b{
 .close-menu-btn{
     position: absolute;
     right: 0;
-    margin-right: 20px;
+    margin-right: 25px;
+    border: none;
+    color: blue;
+    background-color: white;
 }
+
+.close-menu-btn:hover{
+    color: red;
+    transform: rotate(90deg);
+}
+
+  
 
 
 .d-none{
@@ -238,7 +257,7 @@ b{
         display: flex;
         flex-direction: column;
         width: 100vw;
-        height: 500px;
+        height: 600px;
     }
 
     .content-left{
@@ -253,10 +272,12 @@ b{
 
     .content-right{
         width: 100vw;
-        height: 500px;
+        height: 600px;
     }
 
-    
+  .nav{
+    margin-top: 0px;
+  }
       
     .progress-bar-container{
         width: 100vw;
@@ -272,17 +293,21 @@ b{
     }
 
     .question-footer{
-      margin-top: 10px;
-      margin-bottom: 10px;
-      width: 30rem;
-    }
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 30rem;
+      }
   
     .question-number{
     text-align: center;
 }
 
+.headlines{
+    margin-top: 150px;
+}
+
 .btn-pos{
-    margin-left: 0;
+    margin-bottom: 100px;
 }
 }
 
@@ -339,7 +364,7 @@ h2{
 }
 
 .nav-link:hover{
-    color: rgb(57, 93, 255) !important;
+    color: rgb(78, 101, 204) !important;
     cursor: pointer;
 }
 
