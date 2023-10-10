@@ -36,46 +36,45 @@ let questions = [
   },
 ];
 
-let i = 0;
+let question_index = 0;
 let rightquestion = 0;
-let audio_success = new Audio('audio/success.mp3');
-let audio_fail = new Audio('audio/fail.mp3');
-
+let audio_success = new Audio("audio/success.mp3");
+let audio_fail = new Audio("audio/fail.mp3");
 
 function renderCard() {
- 
   let contentright = document.getElementById("content-right");
   contentright.innerHTML = "";
-  contentright.innerHTML += /*html*/ `<div id="card"class="card border border-0 bg-color mt-5">
+  contentright.innerHTML += /*html*/ `
+  <div id="card"class="card border border-0 bg-color mt-5">
     <div id="card-body"class="card-body">
-      <p class="card-text">${questions[i]["question"]}</p>
+      <p class="card-text">${questions[question_index]["question"]}</p>
     </div>
     <div id="answer_1"onclick="answer('answer_1')"class="card  answer-card mb-3 border border-0 mt-3">
       
   <div class="card-body card-position">
   <div class="abcd bg-primary">A</div>
-    <span class="ms-5">${questions[i]["answer_1"]}</span>
+    <span class="ms-5">${questions[question_index]["answer_1"]}</span>
   </div>
 </div>
 <div id="answer_2" onclick="answer('answer_2')"class="card answer-card  mb-3 border border-0">
 
   <div class="card-body card-position">
   <div class="abcd bg-primary">B</div>
-    <span class="ms-5">${questions[i]["answer_2"]}</span>
+    <span class="ms-5">${questions[question_index]["answer_2"]}</span>
   </div>
 </div>
 <div id="answer_3"onclick="answer('answer_3')"class="card  answer-card mb-3 border border-0">
 
   <div class="card-body card-position">
   <div class="abcd bg-primary">C</div>
-    <span class="ms-5">${questions[i]["answer_3"]}</span>
+    <span class="ms-5">${questions[question_index]["answer_3"]}</span>
   </div>
 </div>
-<div id="answer_4"onclick="answer('answer_4')" class="card answer-card  border border-0">
+<div id="answer_4"onclick="answer('answer_4')" class="card answer-card mb-3 border border-0">
 
   <div class="card-body card-position">
   <div class="abcd bg-primary">D</div>
-    <span class="ms-5">${questions[i]["answer_4"]}</span>
+    <span class="ms-5">${questions[question_index]["answer_4"]}</span>
   </div>
 </div>
   </div>
@@ -88,98 +87,104 @@ function renderCard() {
 </div>
 
     `;
-    
+
   document.getElementById("all-questions").innerHTML = questions.length;
 }
 
+
 function showNextQuestion() {
-  if (i >= questions.length -1) {
-    document.getElementById("content-right").innerHTML = "";
-    document.getElementById("content-right").classList.add("content-right-bg-d-none");
-    document.getElementById("content-right").innerHTML += /*html*/ `
-     <div class="endscreen">
-      <img class="brain-result"src="./img/brain result.png">
-      <p class="font-endscreen-text">Quit beendet!</p>
-      <p class="font-endscreen-text">Dein Ergebnis  <b id="amount-of-right-questions"></b>/<b id="amount-of-questions"></b></p>
-      <button class="btn btn-primary btn-width font-endscreen-button" >Quiz teilen</button>
-      <button onclick="restart()"class="btn btn-primary mt-2 btn-width font-endscreen-button">Quiz wiederholen</button>
-     </div>`;
-    document.getElementById("amount-of-questions").innerHTML = questions.length;
-    document.getElementById("amount-of-right-questions").innerHTML =
-      rightquestion;
+  if (gameIsOver()) {
+    showEndScreen();
    
   } else {
-    renderCard(i++);
+    updateToNextQuestion();
   
-    document.getElementById("question-number").innerHTML = i + 1;
-   
   }
-
 }
+
+
+function showEndScreen(){
+  document.getElementById("content-right").innerHTML = "";
+  document.getElementById("content-right").classList.add("content-right-bg-d-none");
+  document.getElementById("content-right").innerHTML += /*html*/ `
+   <div class="endscreen">
+    <img class="brain-result"src="./img/brain result.png">
+    <p class="font-endscreen-text">Quit beendet!</p>
+    <p class="font-endscreen-text">Dein Ergebnis  <b id="amount-of-right-questions"></b>/<b id="amount-of-questions"></b></p>
+    <button class="btn btn-primary btn-width font-endscreen-button" >Quiz teilen</button>
+    <button onclick="restart()"class="btn btn-primary mt-2 btn-width font-endscreen-button">Quiz wiederholen</button>
+   </div>`;
+  document.getElementById("amount-of-questions").innerHTML = questions.length;
+  document.getElementById("amount-of-right-questions").innerHTML = rightquestion;
+}
+
+
+function updateToNextQuestion(){
+  renderCard(question_index++);
+  document.getElementById("question-number").innerHTML = question_index + 1;
+}
+
+
+function gameIsOver(){
+  return question_index >= questions.length - 1;
+}
+
 
 
 function answer(selection) {
-  let question = questions[i];
+  let question = questions[question_index];
   let selectedQuestionNumber = selection.slice(-1);
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
-  let percent = (i+1) / questions.length;
-  if (selectedQuestionNumber == question["right_answer"]) {
-    console.log("Richtige Antwort");
+  
+  if (rightAnswerSelected(selectedQuestionNumber)) {
     document.getElementById(selection).classList.add("bg-success");
     rightquestion++;
     audio_success.play();
-    document.getElementById('insert-progress-bar').innerHTML = /*html*/`
-    <div class="progress mt-4">
-        <div id="progress-bar"class="progress-bar " role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
-      </div>`;
-    percent = Math.round(percent * 100);
-    document.getElementById("progress-bar").innerHTML = `${percent} %`;
-    document.getElementById("progress-bar").style = `width: ${percent}%;`;
+    updateProgressBar();
    
-  }
-  
-   else {
-    console.log("Falsche Antwort");
+  } else {
     document.getElementById(selection).classList.add("bg-danger");
     document.getElementById(idOfRightAnswer).classList.add("bg-success");
     audio_fail.play();
-    document.getElementById('insert-progress-bar').innerHTML = /*html*/`
-    <div class="progress mt-4">
-        <div id="progress-bar"class="progress-bar " role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
-      </div>`;
-    percent = Math.round(percent * 100);
-    document.getElementById("progress-bar").innerHTML = `${percent} %`;
-    document.getElementById("progress-bar").style = `width: ${percent}%;`;
-   
+    updateProgressBar();
   }
-  
-  
   document.getElementById("next-button").disabled = false;
 }
 
-function restart(){
-  document.getElementById('insert-progress-bar').innerHTML ='';
-   i = 0;
- rightquestion = 0;
+
+function rightAnswerSelected(selectedQuestionNumber){
+  let question = questions[question_index];
+  return selectedQuestionNumber == question["right_answer"];
+}
+
+
+function updateProgressBar(){
+  let percent = (question_index + 1) / questions.length;
+  document.getElementById("insert-progress-bar").innerHTML = /*html*/ `
+    <div class="progress">
+      <div id="progress-bar"class="progress-bar " role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>`;
+  percent = Math.round(percent * 100);
+  document.getElementById("progress-bar").innerHTML = `${percent} %`;
+  document.getElementById("progress-bar").style = `width: ${percent}%;`;
+}
+
+
+function restart() {
+  document.getElementById("insert-progress-bar").innerHTML = "";
+  question_index = 0;
+  rightquestion = 0;
   renderCard();
- 
-  
 }
 
-function showMenu(){
-  document.getElementById('content-right').classList.add('d-none');
-  document.getElementById('menu').classList.add('show-overlay-menu');
 
+function showMenu() {
+  document.getElementById("content-right").classList.add("d-none");
+  document.getElementById("menu").classList.add("show-overlay-menu");
 }
-  
-function closeMenu(){
-  document.getElementById('menu').classList.remove('show-overlay-menu');
-  document.getElementById('content-right').classList.remove('d-none');
-   
-   
-  
-     
-  
-      
 
+
+function closeMenu() {
+  document.getElementById("menu").classList.remove("show-overlay-menu");
+  document.getElementById("content-right").classList.remove("d-none");
 }

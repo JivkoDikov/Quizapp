@@ -18,6 +18,7 @@ body{
     
     
     
+    
 }
 
 .content-left{
@@ -47,6 +48,11 @@ body{
     justify-content: space-between;
     align-items: center;
 
+}
+
+.index:hover{
+    cursor: pointer;
+    transform: scale(0.9);
 }
 
 .nav{
@@ -213,12 +219,14 @@ b{
     right: 0;
     left: 0;
     width: 100vw;
-    top: 350px;
+    height: 100vh;
+    top: 0;
+    background-color: #F7F7F7;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    transform: translateX(1500px);
+    transform: translateX(1900px);
     transition: all 225ms ease-in-out;
     
     
@@ -233,9 +241,14 @@ b{
     position: absolute;
     right: 0;
     margin-right: 25px;
-    border: none;
-    color: blue;
+    margin: 25px;
+    border: 2px solid black;
+    color: black;
     background-color: white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    
 }
 
 .close-menu-btn:hover{
@@ -261,7 +274,6 @@ b{
     }
 
     .content-left{
-        height: 100px;
         width: 100vw;
         display: flex;
         justify-content: space-between;
@@ -273,6 +285,7 @@ b{
     .content-right{
         width: 100vw;
         height: 600px;
+        background-color: #F7F7F7;
     }
 
   .nav{
@@ -309,6 +322,10 @@ b{
 .btn-pos{
     margin-bottom: 100px;
 }
+
+.mt-5{
+    margin-top: 0px !important;
+}
 }
 
 @media(min-width:505px){
@@ -322,6 +339,25 @@ b{
     .card{
         width: 19rem !important;
         font-size: 14px !important;
+    }
+
+    .content-left-right{
+        height: 100vh;
+    }
+
+    .content-right{
+        height: 100vh;
+        justify-content: flex-start;
+        background-image: none;
+
+    }
+
+    
+
+
+
+    .content{
+        height: 100vh;
     }
 
 
@@ -358,13 +394,26 @@ h2{
     font-size: 16px !important;
 }
 
+.headlines{
+    margin-bottom: 50px;
+}
+
+.btn-lg{
+    --bs-btn-padding-y: 0rem !important;
+    --bs-btn-padding-x: 0rem !important;
+    --bs-btn-font-size: 1rem !important;
+    width: 120px;
+
+}
+
 .nav-link{
     color: blue !important;
     font-weight: bold !important;
 }
 
 .nav-link:hover{
-    color: rgb(78, 101, 204) !important;
+    color: rgb(88, 118, 255) !important;
+    text-decoration: underline;
     cursor: pointer;
 }
 
